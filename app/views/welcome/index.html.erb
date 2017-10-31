@@ -1,3 +1,9 @@
 <%#= link_to 'Login with Spotify', spotify_login_path %>
-<%= link_to 'Login with Spotify', '/auth/spotify' %>
+<%#= link_to 'Login with Spotify', '/auth/spotify' %>
 <%#= link_to 'Login with Spotify', "https://accounts.spotify.com/en/authorize?response_type=code&client_id=07c1b959c80e433fb6a16737792f1aca&scope=user-read-private%20user-read-email&redirect_uri=http:%2F%2Flocalhost:8888/auth/spotify%2Fcallback%2F&state=CE55gfIIYAlLJ9k9" %>
+<% if current_user %>
+  Hello, <%= current_user.uid %>
+  <%= link_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in with Spotify", '/auth/spotify' %>
+<% end %>

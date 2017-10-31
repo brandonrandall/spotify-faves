@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-# protect_from_forgery prepend: true
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      binding.pry
+  def self.from_omniauth(auth_info)
+    where(uid: auth_info[:uid]).first_or_create do |new_user|
+      new_user.provider      = auth_info["provider"]
+      new_user.uid           = auth_info["uid"]
+      new_user.oauth_token   = auth_info["credentials"]["token"]
+      new_user.oauth_refresh = auth_info["credentials"]["refresh_token"]
     end
   end
 end
