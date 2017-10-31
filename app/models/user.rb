@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-protect_from_forgery prepend: true
+# protect_from_forgery prepend: true
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
