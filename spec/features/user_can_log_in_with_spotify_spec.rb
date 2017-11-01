@@ -26,7 +26,7 @@ describe 'spotify login' do
       # And I should see a link for "Logout" in the navbar
       click_on "Logout"
       # And when I click "Logout"
-      expect(path).to eq("/root")
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("Login with Spotify")
       # Then I should be logged out
   end
