@@ -7,11 +7,6 @@ class User < ApplicationRecord
       new_user.uid           = auth_info["uid"]
       new_user.oauth_token   = auth_info.credentials.token
       new_user.oauth_refresh = auth_info.credentials.refresh_token
-
-
-
-
-
     end
   end
 end

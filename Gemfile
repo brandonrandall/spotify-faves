@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'omniauth-spotify'
 gem 'rspotify'
+gem 'sqlite3'
+# gem 'pg', group: :production
+gem 'rails_12factor'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
