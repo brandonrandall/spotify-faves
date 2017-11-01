@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module SpotifyFaves
   class Application < Rails::Application
+    RSpotify::authenticate(ENV["client_id"], ENV["client_secret"])
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
