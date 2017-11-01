@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<link rel='stylesheet' href='application.css'/>
+
 <html>
   <head>
     <title>SpotifyFaves</title>
@@ -7,6 +10,25 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <div>
+    <ul class='nav-bar'>
+  <% if current_user %>
+    Hello, <%= current_user.uid %>
+    <li>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to "Login with Spotify", '/auth/spotify' %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+
+
+
 
   <body>
     <%= yield %>
